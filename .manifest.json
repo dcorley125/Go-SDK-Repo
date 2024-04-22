@@ -1,0 +1,118 @@
+{
+  "liblabVersion": "2.1.3",
+  "date": "2024-04-22T19:20:10.503Z",
+  "config": {
+    "language": "go",
+    "apiId": 2,
+    "sdkName": "test-sdk",
+    "sdkVersion": "1.2.0",
+    "liblabVersion": "1",
+    "deliveryMethods": ["zip"],
+    "languages": ["go"],
+    "apiVersion": "1.0.0",
+    "apiName": "Swagger Petstore",
+    "specFilePath": "spec.json",
+    "createDocs": false,
+    "languageOptions": {
+      "go": {
+        "goModuleName": "github.com/dcorley125/Go-SDK-Repo",
+        "githubRepoName": "Go-SDK-Repo",
+        "sdkVersion": "1.2.0"
+      },
+      "python": {
+        "alwaysInitializeOptionals": true,
+        "pypiPackageName": "DC-Test-petstore-sdk",
+        "githubRepoName": "Python-SDK-Repo",
+        "liblabVersion": "2",
+        "sdkVersion": "6.9.1"
+      }
+    },
+    "publishing": {
+      "githubOrg": "dcorley125"
+    },
+    "multiTenant": true,
+    "specUrl": "https://prod-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/2/open-api-spec.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5P3QKKDKGVNIJ2H7%2F20240422%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240422T192006Z&X-Amz-Expires=43200&X-Amz-Signature=1481f2b8e029d4a4060994a016a9bcbf8a9cbd89ced3f6d195c25dd12f6f9d05&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "includeWatermark": false,
+    "goModuleName": "github.com/dcorley125/Go-SDK-Repo",
+    "githubRepoName": "Go-SDK-Repo",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "usesFormData": false,
+    "authentication": {},
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "inferServiceNames": false,
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.6.8"
+      },
+      "languages": ["typescript"]
+    },
+    "auth": [],
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    },
+    "generateEnv": true,
+    "devContainer": false
+  },
+  "files": [
+    "internal/validation/validate_array_length.go",
+    "internal/validation/validate_array_unique.go",
+    "internal/validation/validate_required.go",
+    "internal/validation/validate_max.go",
+    "internal/validation/validate_min.go",
+    "internal/validation/validate_multiple_of.go",
+    "internal/validation/validate_pattern.go",
+    "pkg/testsdk/testsdk.go",
+    "go.mod",
+    "internal/clients/rest/client.go",
+    "internal/utils/utils.go",
+    "internal/clients/rest/httptransport/request.go",
+    "internal/clients/rest/httptransport/response.go",
+    "internal/clients/rest/httptransport/error_response.go",
+    "internal/clients/rest/handlers/handler_chain.go",
+    "cmd/examples/example.go",
+    "internal/clients/rest/handlers/terminating_handler.go",
+    "internal/clients/rest/handlers/hook_handler.go",
+    "pkg/pets/request_params.go",
+    "internal/clients/rest/hooks/hook.go",
+    "internal/clients/rest/hooks/default_hook.go",
+    "internal/clients/rest/handlers/default_headers_handler.go",
+    "internal/clients/rest/handlers/retry_handler.go",
+    "internal/clients/rest/handlers/request_validation_handler.go",
+    "internal/validation/validation.go",
+    "internal/clients/rest/handlers/response_validation_handler.go",
+    "internal/unmarshal/unmarshal.go",
+    "internal/clients/rest/handlers/unmarshal_handler.go",
+    "internal/unmarshal/to_complex_object.go",
+    "internal/unmarshal/to_object.go",
+    "internal/unmarshal/to_primitive.go",
+    "internal/marshal/from_complex_object.go",
+    ".gitignore",
+    "pkg/testsdkconfig/config.go",
+    "internal/configmanager/config_manager.go",
+    "pkg/shared/test_sdk_response.go",
+    "pkg/shared/test_sdk_error.go",
+    "pkg/testsdkconfig/environments.go",
+    ".env.example",
+    "pkg/pets/pets_service.go",
+    "pkg/pets/pet.go",
+    "README.md"
+  ]
+}
