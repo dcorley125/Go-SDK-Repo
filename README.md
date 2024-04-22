@@ -1,26 +1,94 @@
-# Template repo for Go SDK  
-This template helps developers get started with the Go SDK and initiate indexing process on pkg.go.dev repository
+# TestSdk Go SDK 1.2.0
 
-## Prerequisites
-For publishing the package, it is important to note the Go website's [Licence Disclaimer](https://pkg.go.dev/license-policy). As stated in the document, in case of the missing license, only limited package and module information will be made available on the Go website. You can find more information on [license config](https://developers.liblab.com/cli/config-file-overview-customizations/#license) in our developer docs.
+A Go SDK for TestSdk.
 
-## Contents
-This repository contains the following:
+- API version: 1.0.0
+- SDK version: 1.2.0
 
-- A `README` that contains the instructions
-- A GitHub Action workflow to initiate publishing the Go SDK to [pkg.go.dev](https://pkg.go.dev/) package repository (as suggested in the [official publishing tutorial](https://go.dev/doc/modules/publishing)).
+## Table of Contents
+
+- [Services](#services)
+
+## Services
+
+### PetsService
+
+#### ListPets
+
+List all pets
+
+```GO
+import (
+  "fmt"
+  "encoding/json"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/testsdkconfig"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/testsdk"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/pets"
+)
+
+config := testsdkconfig.NewConfig()
+client := testsdk.NewTestSdk(config)
 
 
-## Instructions
+params := pets.ListPetsRequestParams{}
 
-1. Create a new target Go SDK Repo by clicking the **Use this template** button at the top of this repository.
 
-2. Run the GitHub Action `Generate SDKs using liblab` in the Control Repo that builds the SDK, and raises a PR against this target SDK Repo.
+response, err := client.Pets.ListPets(context.Background(), params)
+if err != nil {
+  panic(err)
+}
 
-3. Review and merge the PR.
+fmt.Print(response)
+```
 
-4. Create a release with a tag in the target SDK Repo.
+#### CreatePets
 
-5. The GitHub Action `Publish to pkg.go.dev` in the target SDK Repo initiates the indexing proces
+Create a pet
 
-6. After the time needed for the indexing process to be finished (tipically around 1 hour or less), package should be accessible at `https://pkg.go.dev/github.com/{go-module-name}@{tag}`
+```GO
+import (
+  "fmt"
+  "encoding/json"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/testsdkconfig"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/testsdk"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/pets"
+)
+
+config := testsdkconfig.NewConfig()
+client := testsdk.NewTestSdk(config)
+
+
+request := pets.Pet{}
+request.SetId(int64(123))
+request.SetName("Name")
+
+response, err := client.Pets.CreatePets(context.Background(), request)
+if err != nil {
+  panic(err)
+}
+
+fmt.Print(response)
+```
+
+#### ShowPetById
+
+Info for a specific pet
+
+```GO
+import (
+  "fmt"
+  "encoding/json"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/testsdkconfig"
+  "github.com/dcorley125/Go-SDK-Repo/pkg/testsdk"
+)
+
+config := testsdkconfig.NewConfig()
+client := testsdk.NewTestSdk(config)
+
+response, err := client.Pets.ShowPetById(context.Background(), "petId")
+if err != nil {
+  panic(err)
+}
+
+fmt.Print(response)
+```

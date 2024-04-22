@@ -1,0 +1,13 @@
+# Binaries and executables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+.DStore
+
+# Output of go coverage
+*.out
+
+# Environment variables
+.env
